@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CV</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+        }
+        .container {
+            display: flex;
+            background-color: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            /* A4 size specific styling */
+            width: 210mm;
+            min-height: 297mm;
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+        .left-column {
+            width: 35%;
+            background-color: #f0f4f7;
+            padding: 30px;
+            color: #495057;
+        }
+        .right-column {
+            width: 65%;
+            padding: 30px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #d1d8e0;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .header h2 {
+            font-size: 1.2em;
+            font-weight: 300;
+            color: #777;
+            margin-top: 0;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #34495e;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+            margin: 0 0 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li {
+            margin-bottom: 8px;
+        }
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+        }
+        .work-item, .education-item {
+            margin-bottom: 15px;
+        }
+        .work-item h3, .education-item h3 {
+            font-size: 1.1em;
+            margin: 0;
+            color: #333;
+        }
+        .work-item h4, .education-item h4 {
+            font-size: 1em;
+            font-style: italic;
+            margin: 0;
+            color: #666;
+        }
+        .dates {
+            font-size: 0.9em;
+            color: #999;
+            margin: 0;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background-color: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        /* Live Editing Styles - added a specific class to control visibility */
+        .delete-button {
+            display: none;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .editable-section:hover .delete-button {
+            display: block;
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid #3498db;
+            background-color: #e8f4fd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+                width: auto;
+                min-height: auto;
+            }
+            .delete-button {
+                display: none !important;
+            }
+            /* You can add more print-specific styles here */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="header">
+                <div class="profile-photo"></div>
+                <h1 contenteditable="true">Jane Doe</h1>
+                <h2 contenteditable="true">Senior UI/UX Designer</h2>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Contact</h3>
+                <ul class="contact-info">
+                    <li><p contenteditable="true">john.doe@email.com</p></li>
+                    <li><p contenteditable="true">(123) 456-7890</p></li>
+                    <li><p contenteditable="true">New York, NY</p></li>
+                    <li><a href="https://linkedin.com/in/janedoe" contenteditable="true">linkedin.com/in/janedoe</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list">
+                    <li contenteditable="true">User Research</li>
+                    <li contenteditable="true">Prototyping</li>
+                    <li contenteditable="true">Figma</li>
+                    <li contenteditable="true">Wireframing</li>
+                    <li contenteditable="true">A/B Testing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="section">
+                <h3 class="section-title">Summary</h3>
+                <p contenteditable="true">Dedicated and creative UI/UX designer with 7+ years of experience in crafting intuitive and visually appealing digital products. Proven ability to translate complex user needs into seamless and engaging interfaces. Seeking to leverage design skills and leadership to drive innovative projects.</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Work Experience</h3>
+                <!--LOOP:experience-->
+                <div class="work-item editable-section">
+                    <h3 contenteditable="true">Lead UI/UX Designer</h3>
+                    <h4 contenteditable="true">Creative Solutions Inc.</h4>
+                    <p class="dates" contenteditable="true">2020 - Present</p>
+                    <ul>
+                        <li>Directed a team of 4 designers in the end-to-end design of a new mobile application, increasing user engagement by 40%.</li>
+                        <li>Conducted comprehensive user research, including interviews and surveys, to inform design decisions.</li>
+                        <li>Collaborated with cross-functional teams to ensure a cohesive and consistent user experience across platforms.</li>
+                    </ul>
+                </div>
+                <!--/LOOP:experience-->
+                <!-- Dummy data for a second work item -->
+                <div class="work-item editable-section">
+                    <h3 contenteditable="true">UI Designer</h3>
+                    <h4 contenteditable="true">Tech Innovators LLC</h4>
+                    <p class="dates" contenteditable="true">2017 - 2020</p>
+                    <ul>
+                        <li>Designed high-fidelity mockups and interactive prototypes for web and mobile interfaces.</li>
+                        <li>Assisted in the development of a company-wide design system, improving workflow efficiency by 25%.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <!--LOOP:education-->
+                <div class="education-item editable-section">
+                    <h3 contenteditable="true">M.S. in Human-Computer Interaction</h3>
+                    <h4 contenteditable="true">University of Design</h4>
+                    <p class="dates" contenteditable="true">2015 - 2017</p>
+                </div>
+                <!--/LOOP:education-->
+                 <!-- Dummy data for a second education item -->
+                 <div class="education-item editable-section">
+                    <h3 contenteditable="true">B.A. in Graphic Design</h3>
+                    <h4 contenteditable="true">State College of Arts</h4>
+                    <p class="dates" contenteditable="true">2011 - 2015</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
